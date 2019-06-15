@@ -5,9 +5,20 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Define your beans here -->
-    <bean id="trackCoach" class="org.anyrem.springdemo.TrackCoach"></bean>
-    <bean id="baseballCoach" class="org.anyrem.springdemo.BaseballCoach"></bean>
-    <bean id="swimmingCoach" class="org.anyrem.springdemo.SwimmingCoach"></bean>
+
+    <bean id="fortuneService" class="org.anyrem.springdemo_one.HappyFortuneService"></bean>
+
+    <bean id="trackCoach" class="org.anyrem.springdemo_one.TrackCoach">
+        <constructor-arg ref="fortuneService"/>
+    </bean>
+
+    <bean id="baseballCoach" class="org.anyrem.springdemo_one.BaseballCoach">
+        <constructor-arg ref="fortuneService"/>
+    </bean>
+
+    <bean id="swimmingCoach" class="org.anyrem.springdemo_one.SwimmingCoach">
+        <constructor-arg ref="fortuneService"/>
+    </bean>
 </beans>
 
 

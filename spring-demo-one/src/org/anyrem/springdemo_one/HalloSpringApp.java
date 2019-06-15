@@ -1,4 +1,4 @@
-package org.anyrem.springdemo;
+package org.anyrem.springdemo_one;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,9 +15,9 @@ public class HalloSpringApp {
         Coach baseballCoach = classPathXmlApplicationContext.getBean("baseballCoach", Coach.class);
         Coach swimmingCoach = classPathXmlApplicationContext.getBean("swimmingCoach", Coach.class);
 
-        System.out.println(trackCoach.getDayilyWorkout());
-        System.out.println(baseballCoach.getDayilyWorkout());
-        System.out.println(swimmingCoach.getDayilyWorkout());
+        System.out.println(trackCoach.getDayilyWorkout() + " " + trackCoach.getDayilyFortune());
+        System.out.println(baseballCoach.getDayilyWorkout() + " " + trackCoach.getDayilyFortune());
+        System.out.println(swimmingCoach.getDayilyWorkout() + " " + trackCoach.getDayilyFortune());
 
         classPathXmlApplicationContext.close();
 
