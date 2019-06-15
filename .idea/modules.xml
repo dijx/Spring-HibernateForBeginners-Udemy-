@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Spring-HibernateForBeginners-Udemy-.iml" filepath="$PROJECT_DIR$/.idea/Spring-HibernateForBeginners-Udemy-.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-demo-one/org.anyrem.springdemo.iml" filepath="$PROJECT_DIR$/spring-demo-one/org.anyrem.springdemo.iml" />
-    </modules>
-  </component>
-</project>
