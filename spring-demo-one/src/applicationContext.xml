@@ -19,6 +19,12 @@
     <bean id="swimmingCoach" class="org.anyrem.springdemo_one.SwimmingCoach">
         <constructor-arg ref="fortuneService"/>
     </bean>
+
+    <bean id="cricketCoach" class="org.anyrem.springdemo_one.CricketCoach">
+        <property name="fortuneService" ref="fortuneService"/>
+    </bean>
+
+
 </beans>
 
 
