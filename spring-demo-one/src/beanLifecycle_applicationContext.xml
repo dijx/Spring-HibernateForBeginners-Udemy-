@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define your beans here -->
+
+    <bean id="fortuneService" class="org.anyrem.springdemo_one.HappyFortuneService"></bean>
+
+    <!-- MultiFortune - task -->
+    <bean id="multiFortuneService" class="org.anyrem.springdemo_one.MultiFortuneService">
+        <property name="multiFortune" value="${multiFortuneFortunes}"/>
+    </bean>
+
+
+    <bean id="trackCoach" class="org.anyrem.springdemo_one.TrackCoach">
+        <constructor-arg ref="fortuneService"/>
+    </bean>
+
+    <bean id="baseballCoach"
+          class="org.anyrem.springdemo_one.BaseballCoach"
+          scope="singleton"
+          init-method="sampleInit"
+          destroy-method="sampleDestroy"
+    >
+
+        <constructor-arg ref="fortuneService"/>
+
+    </bean>
+
+    <bean id="swimmingCoach" class="org.anyrem.springdemo_one.SwimmingCoach">
+        <constructor-arg ref="fortuneService"/>
+    </bean>
+
+    <!--    <bean id="cricketCoach" class="org.anyrem.springdemo_one.CricketCoach">-->
+    <!--        <property name="fortuneService" ref="multiFortuneService"/>-->
+    <!--        <property name="emailAddress" value="${foo.email}"/>-->
+    <!--        <property name="team" value="${foo.team}"/>-->
+    <!--    </bean>-->
+
+</beans>
+
+
+
+
+

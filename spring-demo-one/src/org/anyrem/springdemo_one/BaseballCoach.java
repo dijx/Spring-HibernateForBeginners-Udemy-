@@ -17,4 +17,14 @@ public class BaseballCoach implements Coach {
     public String getDayilyFortune() {
         return fortuneService.getFortune();
     }
+
+
+    private void sampleInit() {
+        System.out.println("Sample init");
+    }
+
+    private void sampleDestroy() {
+        System.out.println("Sample destroy");
+    }
+
 }
