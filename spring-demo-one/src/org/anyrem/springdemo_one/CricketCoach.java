@@ -2,8 +2,8 @@ package org.anyrem.springdemo_one;
 
 public class CricketCoach implements Coach {
 
-
     private FortuneService fortuneService;
+
 
     public CricketCoach() {
         System.out.println("Cricket coach: no arg constructor");
