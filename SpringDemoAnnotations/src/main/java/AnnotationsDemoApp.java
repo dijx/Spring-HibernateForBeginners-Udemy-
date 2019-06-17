@@ -1,5 +1,6 @@
 import com.anyrem.springdemo2.BowlingCoach;
 import com.anyrem.springdemo2.Coach;
+import com.anyrem.springdemo2.SwimmingCoach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AnnotationsDemoApp {
@@ -11,11 +12,16 @@ public class AnnotationsDemoApp {
 
         Coach tennisCoach = context.getBean("tennisCoach", Coach.class);
         Coach bowlingCoach = context.getBean("bowlingCoach", BowlingCoach.class);
+        Coach swimmingCoach = context.getBean("swimmingCoach", SwimmingCoach.class);
 
         System.out.println(bowlingCoach.getDailyWorkout());
+        System.out.println(bowlingCoach.getDailyFortune());
 
         System.out.println(tennisCoach.getDailyWorkout());
         System.out.println(tennisCoach.getDailyFortune());
+
+        System.out.println("---swimming");
+        System.out.println(swimmingCoach.getDailyFortune());
 
         context.close();
 
