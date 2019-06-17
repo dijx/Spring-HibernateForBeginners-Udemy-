@@ -22,6 +22,8 @@
 
     <bean id="cricketCoach" class="org.anyrem.springdemo_one.CricketCoach">
         <property name="fortuneService" ref="fortuneService"/>
+        <property name="emailAddress" value="cricketCoach@cricket.mail"/>
+        <property name="team" value="Hawaii Sunrisers"/>
     </bean>
 
 

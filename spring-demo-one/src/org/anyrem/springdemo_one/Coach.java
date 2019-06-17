@@ -2,7 +2,8 @@ package org.anyrem.springdemo_one;
 
 public interface Coach {
 
-    public String getDayilyWorkout();
+    String getDayilyWorkout();
 
-    public String getDayilyFortune();
+    String getDayilyFortune();
+
 }

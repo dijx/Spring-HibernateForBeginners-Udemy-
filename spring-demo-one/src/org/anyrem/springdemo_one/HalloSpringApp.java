@@ -14,13 +14,16 @@ public class HalloSpringApp {
         Coach trackCoach = classPathXmlApplicationContext.getBean("trackCoach", Coach.class);
         Coach baseballCoach = classPathXmlApplicationContext.getBean("baseballCoach", Coach.class);
         Coach swimmingCoach = classPathXmlApplicationContext.getBean("swimmingCoach", Coach.class);
-        Coach cricketCoach = classPathXmlApplicationContext.getBean("cricketCoach", Coach.class);
+        CricketCoach myCricketCoach = classPathXmlApplicationContext.getBean("cricketCoach", CricketCoach.class);
 
         System.out.println(trackCoach.getDayilyWorkout() + " " + trackCoach.getDayilyFortune());
         System.out.println(baseballCoach.getDayilyWorkout() + " " + trackCoach.getDayilyFortune());
         System.out.println(swimmingCoach.getDayilyWorkout() + " " + trackCoach.getDayilyFortune());
 
-        System.out.println(cricketCoach.getDayilyWorkout() + " " + cricketCoach.getDayilyFortune());
+        System.out.println(myCricketCoach.getDayilyWorkout() + " " + myCricketCoach.getDayilyFortune());
+        System.out.println("Cricket coach mail: " + myCricketCoach.getEmailAddress());
+        System.out.println("Cricket coach team: " + myCricketCoach.getTeam());
+
 
         classPathXmlApplicationContext.close();
 
