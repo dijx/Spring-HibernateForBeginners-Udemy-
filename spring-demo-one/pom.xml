@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.anyrem.springdemo</groupId>
-    <artifactId>org.anyrem.springdemo</artifactId>
+    <artifactId>spring-demo-one</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
