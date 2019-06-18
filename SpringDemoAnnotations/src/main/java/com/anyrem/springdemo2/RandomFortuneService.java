@@ -3,6 +3,7 @@ package com.anyrem.springdemo2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Random;
 
 @Component
@@ -27,5 +28,14 @@ public class RandomFortuneService implements FortuneService {
         int r = random.nextInt(randomFortunes.length);
 
         return randomFortunes[r];
+    }
+
+    @PostConstruct
+    private void checkFortunes() {
+        System.out.println("testing RandomFortuneService:");
+        for (String randomFortune : randomFortunes) {
+            System.out.println(randomFortune);
+        }
+        System.out.println("===========<<<Test ends here");
     }
 }

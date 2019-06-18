@@ -1,6 +1,5 @@
-import com.anyrem.springdemo2.BowlingCoach;
-import com.anyrem.springdemo2.Coach;
-import com.anyrem.springdemo2.SwimmingCoach;
+package com.anyrem.springdemo2;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AnnotationsDemoApp {
