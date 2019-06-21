@@ -15,6 +15,11 @@
 
     <util:properties id="operatingSystem" location="/WEB-INF/operatingSystems.properties"/>
 
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames" value="messages"/>
+    </bean>
+
     <!-- Step 3: Add support for component scanning -->
     <context:component-scan base-package="org.anyrem.springdemo.mvc"/>
 
