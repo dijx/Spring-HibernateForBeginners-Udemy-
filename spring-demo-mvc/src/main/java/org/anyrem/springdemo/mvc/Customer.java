@@ -1,5 +1,7 @@
 package org.anyrem.springdemo.mvc;
 
+import org.anyrem.springdemo.mvc.validation.CourseCode;
+
 import javax.validation.constraints.*;
 
 public class Customer {
@@ -17,6 +19,18 @@ public class Customer {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters, a-Z & 0-9")
     private String postalCode;
+
+    @CourseCode(value = {"FOO", "BAR"}, message = "must start with FOO or BAR")
+    private String courseCode;
+
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
     public String getPostalCode() {
         return postalCode;
