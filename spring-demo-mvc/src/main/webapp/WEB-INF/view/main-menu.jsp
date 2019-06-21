@@ -5,5 +5,6 @@
 <p>tada!</p>
 <p><a href="/hello/showForm">Show form</a></p>
 <p><a href="/student/showForm">Student form</a></p>
+<p><a href="/customer/showForm">Customer form</a></p>
 </body>
 </html>
