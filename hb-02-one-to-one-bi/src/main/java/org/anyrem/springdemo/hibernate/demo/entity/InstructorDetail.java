@@ -17,6 +17,23 @@ public class InstructorDetail {
     @Column(name = "hobby")
     private String hobby;
 
+
+    /*
+    below provides bidirectional relation
+    cascade = CascadeType.ALL = all operations will take place on both tables
+    cascade = CascadeType.ALL without REMOVE prevens deleting instucior on instuctorDetails deletion
+    */
+
+
+    @OneToOne(mappedBy = "instructorDetail", cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    })
+    private Instructor instructor;
+
+
     public InstructorDetail() {
     }
 
@@ -48,6 +65,14 @@ public class InstructorDetail {
 
     public void setHobby(String hobby) {
         this.hobby = hobby;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override
