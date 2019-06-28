@@ -27,6 +27,7 @@ public class Instructor {
     private InstructorDetail instructorDetail;
 
     @OneToMany(mappedBy = "instructor",
+            fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.DETACH,
                     CascadeType.MERGE,
@@ -104,7 +105,6 @@ public class Instructor {
         course.setInstructor(this);
     }
 
-
     @Override
     public String toString() {
         return "Instructor{" +
@@ -113,6 +113,7 @@ public class Instructor {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", instructorDetail=" + instructorDetail +
+//                ", courses=" + courses +
                 '}';
     }
 }
