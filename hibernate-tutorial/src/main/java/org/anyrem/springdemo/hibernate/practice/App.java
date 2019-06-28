@@ -27,7 +27,7 @@ public class App {
         //employeeDao.deleteById(1);
 
         //Update company by ID
-        employeeDao.updateCompany(2, "Wojtex");
+        employeeDao.updateCompany(2, "Mirex");
 
 
     }
