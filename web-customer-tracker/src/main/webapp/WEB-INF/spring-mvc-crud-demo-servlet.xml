@@ -46,7 +46,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="myDataSource"/>
-        <property name="packagesToScan" value="org.anyrem.udemy.spring_hibernate.webbap.one.entity"/>
+        <property name="packagesToScan" value="org.anyrem.udemy.spring_hibernate.webbap.one.controller"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
