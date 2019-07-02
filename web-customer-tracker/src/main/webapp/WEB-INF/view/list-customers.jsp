@@ -25,29 +25,65 @@
 <div id="container">
     <div id="content">
 
-        <input type="button" value="Add Customer"
+        <input type="button" value="Add/Edit Customer"
                onclick="window.location.href='showFormForAdd' ; return false"
                class="add-button"
         />
 
         <table>
             <tr>
+                <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Action</th>
             </tr>
 
             <c:forEach var="tempCustomer" items="${customers}">
+
+                <%--                Construct update link with customer ID--%>
+                <c:url var="updateLink" value="/customer/showFormForUpdate">
+                    <c:param name="customerId" value="${tempCustomer.id}"/>
+
+                </c:url>
+
+                <%--                Construct delete customer link--%>
+                <c:url var="deleteLink" value="/customer/delete">
+                    <c:param name="customerId" value="${tempCustomer.id}"/>
+
+                </c:url>
+
                 <tr>
+                    <td>${tempCustomer.id}</td>
                     <td>${tempCustomer.firstName}</td>
                     <td>${tempCustomer.lastName}</td>
                     <td>${tempCustomer.email}</td>
+
+                        <%--                    Customer update link--%>
+                    <td>
+                        <a href="${updateLink}">Update</a>
+                        |
+                        <a href="#"
+                           onclick="deleteUserConfirmation('${deleteLink}', '${tempCustomer.email}')">Delete</a>
+                    </td>
+
                 </tr>
             </c:forEach>
         </table>
-
     </div>
 </div>
+
+<script type="text/javascript">
+
+    function deleteUserConfirmation(deleteLocation, customerMail) {
+
+        if (confirm("Are you sure you want to delete user:\n" + customerMail + "?")) {
+
+            window.location.href = deleteLocation
+        }
+    }
+
+</script>
 
 
 </body>

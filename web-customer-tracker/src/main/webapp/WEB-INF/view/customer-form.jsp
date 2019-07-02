@@ -35,12 +35,20 @@
 </div>
 
 <div id="container">
-    <h3>Add Customer</h3>
+    <h3>Save Customer</h3>
 
     <form:form action="saveCustomer" modelAttribute="customer" method="post">
 
+        <%--        Associate data with customer - needed for customer modification, otherwise duplicate entries will be created--%>
+        <form:hidden path="id"/>
+
+
         <table>
             <tbody>
+            <tr>
+                <td><label>ID:</label></td>
+                <td><input disabled="true" placeholder="${customer.id}"></input></td>
+            </tr>
             <tr>
                 <td><label>First name:</label></td>
                 <td><form:input path="firstName"/></td>
