@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,5 +41,28 @@ public class CustomerServiceImpl implements CustomerService {
 
         customerDao.delete(id);
 
+    }
+
+    @Transactional
+    @Override
+    public List<Customer> getByAnyField(String customerString) {
+
+        List<Customer> customersList = new ArrayList<>();
+
+        System.out.println(">>> customerString = " + customerString);
+
+        if (customerString.matches("\\d+")) {
+
+            int customerInt = Integer.parseInt(customerString);
+
+            System.out.println(">>> customerInt = " + customerInt);
+
+            customersList.add(customerDao.getCustomer(customerInt));
+
+        }
+
+        customersList.addAll(customerDao.getByVarcharFields(customerString));
+
+        return customersList;
     }
 }

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: dx
@@ -23,6 +24,7 @@
 </div>
 
 <div id="container">
+
     <div id="content">
 
         <input type="button" value="Add/Edit Customer"
@@ -70,6 +72,25 @@
                 </tr>
             </c:forEach>
         </table>
+    </div>
+    <div id="search">
+
+        <form:form name="search" action="searchCustomer" modelAttribute="customers" method="get">
+
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <input type="search" name="customerString" placeholder="type name, lastname, email or ID"
+                               size="80%"/>
+                        <input type="submit" value="Search"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </form:form>
+
     </div>
 </div>
 

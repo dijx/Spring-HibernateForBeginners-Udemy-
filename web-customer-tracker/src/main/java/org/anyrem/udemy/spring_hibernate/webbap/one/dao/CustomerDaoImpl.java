@@ -29,6 +29,19 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
+    public List<Customer> getByVarcharFields(String customerString) {
+
+        Session session = sessionFactory.getCurrentSession();
+
+        Query<Customer> query = session.createQuery(
+                "FROM Customer c WHERE c.firstName LIKE :cStr OR c.lastName LIKE :cStr OR c.email LIKE :cStr"
+                , Customer.class)
+                .setParameter("cStr", '%' + customerString + '%');
+
+        return query.getResultList();
+    }
+
+    @Override
     public void saveCustomer(Customer customer) {
 
         Session session = sessionFactory.getCurrentSession();
