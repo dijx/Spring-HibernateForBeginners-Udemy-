@@ -8,7 +8,7 @@
 
     <!-- Define your beans here -->
 
-    <context:component-scan base-package="org.anyrem.springdemo.annotations"/>
+    <context:component-scan base-package="org.anyrem.springdemo.aop"/>
     <context:property-placeholder location="classpath:sport.properties"/>
 
 

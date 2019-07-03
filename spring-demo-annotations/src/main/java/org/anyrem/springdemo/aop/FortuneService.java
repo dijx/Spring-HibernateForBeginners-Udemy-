@@ -1,4 +1,4 @@
-package org.anyrem.springdemo.annotations;
+package org.anyrem.springdemo.aop;
 
 public interface FortuneService {
 

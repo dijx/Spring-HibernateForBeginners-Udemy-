@@ -1,8 +1,8 @@
-package org.anyrem.springdemo.annotations.pool;
+package org.anyrem.springdemo.aop.pool;
 
 
-import org.anyrem.springdemo.annotations.Coach;
-import org.anyrem.springdemo.annotations.FortuneService;
+import org.anyrem.springdemo.aop.Coach;
+import org.anyrem.springdemo.aop.FortuneService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

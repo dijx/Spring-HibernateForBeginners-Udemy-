@@ -1,6 +1,6 @@
-package org.anyrem.springdemo.annotations.pool;
+package org.anyrem.springdemo.aop.pool;
 
-import org.anyrem.springdemo.annotations.Coach;
+import org.anyrem.springdemo.aop.Coach;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class PoolDemoApp {
