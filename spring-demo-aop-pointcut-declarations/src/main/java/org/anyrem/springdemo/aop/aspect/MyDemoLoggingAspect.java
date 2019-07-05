@@ -1,6 +1,5 @@
 package org.anyrem.springdemo.aop.aspect;
 
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -29,16 +28,30 @@ public class MyDemoLoggingAspect {
     private void forDaoPackage() {
     }
 
-    @Before("forDaoPackage()")
+    @Pointcut("execution(* get*())")
+    private void getter() {
+    }
+
+    @Pointcut("execution(* set*())")
+    private void setter() {
+    }
+
+    @Pointcut("forDaoPackage() && !(getter() || setter() )")
+    private void forDaoPackageNotGetterSetter() {
+    }
+
+
+    @Before("forDaoPackageNotGetterSetter()")
     public void beforeAddAddountAdvice() {
         System.out.println("ASPECT> executing @Before advice on addAccount()");
     }
 
 
-
+/*
     // public is optional, void is replaced with * = all return types
     @After("forDaoPackage()")
     public void AfterAddAccountAdvice() {
         System.out.println("ASPECT> executing @After advice on addAccount*()");
     }
+    */
 }

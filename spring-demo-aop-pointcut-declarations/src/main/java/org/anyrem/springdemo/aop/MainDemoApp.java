@@ -27,6 +27,12 @@ public class MainDemoApp {
 
         accountDao.doWork();
 
+        accountDao.setName("name");
+        System.out.println(accountDao.getName());
+
+        accountDao.setServiceCode("XD");
+        System.out.println(accountDao.getServiceCode());
+
 
         context.close();
 
