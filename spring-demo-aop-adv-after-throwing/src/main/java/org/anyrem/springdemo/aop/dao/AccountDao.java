@@ -13,19 +13,6 @@ public class AccountDao {
     private String serviceCode;
 
 
-    public List<Account> findAccounts() {
-
-        List<Account> accounts = new ArrayList<>();
-
-        accounts.add(new Account("user1", "1"));
-        accounts.add(new Account("user2", "2"));
-        accounts.add(new Account("user3", "3"));
-
-
-        return accounts;
-    }
-
-
     public String getName() {
 
         System.out.println("AccountDao = getName called");
@@ -57,7 +44,12 @@ public class AccountDao {
 
     public void addAccount(Account account) {
 
-        System.out.println(getClass() + ": doing my db work - adding NAMED account OBJECT");
+        if (account == null) {
+            throw new NullPointerException("Null account");
+        } else {
+
+            System.out.println(getClass() + ": doing my db work - adding NAMED account OBJECT");
+        }
     }
 
     public void addAccount(Account account, boolean vipFlag) {
@@ -65,8 +57,22 @@ public class AccountDao {
         System.out.println(getClass() + ": doing my db work - adding NAMED account OBJECT with vipFlag");
     }
 
+
     public void doWork() {
         System.out.println(getClass() + ": doWork is doing work");
+    }
+
+
+    public List<Account> findAccounts() {
+
+        List<Account> accounts = new ArrayList<>();
+
+        accounts.add(new Account("user1", "1"));
+        accounts.add(new Account("user2", "2"));
+        accounts.add(new Account("user3", "3"));
+
+
+        return accounts;
     }
 
 }

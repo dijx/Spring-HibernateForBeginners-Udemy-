@@ -2,7 +2,6 @@ package org.anyrem.springdemo.aop;
 
 import org.anyrem.springdemo.aop.dao.AccountDao;
 import org.anyrem.springdemo.aop.dao.MembershipDao;
-import org.anyrem.springdemo.aop.entity.Account;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainDemoApp {
@@ -23,7 +22,7 @@ public class MainDemoApp {
 //
 //        accountDao.addAccount(new Account());
 //
-        accountDao.addAccount(new Account("joinTest", "1"), true);
+//        accountDao.addAccount(new Account("joinTest", "1"), true);
 
 //        accountDao.doWork();
 //
@@ -33,8 +32,14 @@ public class MainDemoApp {
 //        accountDao.setServiceCode("XD");
 //        System.out.println(accountDao.getServiceCode());
 
-        System.out.println(accountDao.findAccounts());
+//        System.out.println(accountDao.findAccounts());
 
+        try {
+            accountDao.addAccount(null);
+        } catch (NullPointerException nullEx) {
+            System.out.println(nullEx.getCause());
+        }
+        ;
 
         context.close();
 
