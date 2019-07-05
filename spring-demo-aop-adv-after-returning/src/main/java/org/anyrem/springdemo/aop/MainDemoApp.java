@@ -33,6 +33,8 @@ public class MainDemoApp {
 //        accountDao.setServiceCode("XD");
 //        System.out.println(accountDao.getServiceCode());
 
+        System.out.println(accountDao.findAccounts());
+
 
         context.close();
 

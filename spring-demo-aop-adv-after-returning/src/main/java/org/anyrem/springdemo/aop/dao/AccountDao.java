@@ -3,11 +3,27 @@ package org.anyrem.springdemo.aop.dao;
 import org.anyrem.springdemo.aop.entity.Account;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class AccountDao {
 
     private String name;
     private String serviceCode;
+
+
+    public List<Account> findAccounts() {
+
+        List<Account> accounts = new ArrayList<>();
+
+        accounts.add(new Account("user1", "1"));
+        accounts.add(new Account("user2", "2"));
+        accounts.add(new Account("user3", "3"));
+
+
+        return accounts;
+    }
 
 
     public String getName() {
