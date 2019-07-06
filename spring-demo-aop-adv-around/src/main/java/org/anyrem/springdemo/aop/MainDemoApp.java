@@ -24,7 +24,7 @@ public class MainDemoApp {
 //
 //        accountDao.addAccount(new Account("joinTest", "1"), true);
 
-        accountDao.doWork();
+//        accountDao.doWork();
 //
 //        accountDao.setName("name");
 //        System.out.println(accountDao.getName());
@@ -39,7 +39,7 @@ public class MainDemoApp {
         } catch (NullPointerException nullEx) {
             System.out.println("MAIN APP: " + nullEx.getMessage());
         }
-        ;
+
 
         context.close();
 

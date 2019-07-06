@@ -9,6 +9,10 @@ public class PointcutDeclarations {
     void forDaoPackage() {
     }
 
+    @Pointcut("execution(* org.anyrem.springdemo.aop.service.TrafficFortuneService.getFortune(..))")
+    void forTrafficGetFortune() {
+    }
+
     @Pointcut("execution(* get*(..))")
     void getter() {
     }
@@ -20,5 +24,6 @@ public class PointcutDeclarations {
     @Pointcut("forDaoPackage() && !(getter() || setter() )")
     void forDaoPackageNotGetterSetter() {
     }
+
 
 }
