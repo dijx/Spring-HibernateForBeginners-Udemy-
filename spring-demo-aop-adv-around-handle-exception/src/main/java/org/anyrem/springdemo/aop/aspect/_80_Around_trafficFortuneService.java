@@ -1,9 +1,6 @@
 package org.anyrem.springdemo.aop.aspect;
 
-import org.anyrem.springdemo.aop.AroundWithLoggerDemoApp;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.core.annotation.Order;
@@ -43,7 +40,22 @@ public class _80_Around_trafficFortuneService {
 
         long begin = System.currentTimeMillis();
 
-        Object result = proceedingJoinPoint.proceed();
+        Object result = null;
+
+        try {
+
+            result = proceedingJoinPoint.proceed();
+
+        } catch (Exception e) {
+
+
+            myLogger.warning(e.getMessage());
+
+            result = "Exception handled by AOP @Around";
+
+            //throw e;
+
+        }
 
         long end = System.currentTimeMillis();
 
@@ -52,6 +64,7 @@ public class _80_Around_trafficFortuneService {
         myLogger.info("Duration was: " + (duration / 1000.0) + " seconds");
 
         return result;
+
     }
 
 
