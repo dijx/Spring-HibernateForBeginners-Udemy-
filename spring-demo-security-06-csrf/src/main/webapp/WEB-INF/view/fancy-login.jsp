@@ -37,7 +37,13 @@
             <div style="padding-top: 30px" class="panel-body">
 
                 <!-- Login Form -->
-                <form:form action="${pageContext.request.contextPath}/authenticateTheUser"
+
+                <%--        <form:form> generates CSRF token automatically, while regular <form> not,
+                            so if spring security requires csrf token, this will cause 403 (forbidden) error--%>
+
+                <%--                <form:form action="${pageContext.request.contextPath}/authenticateTheUser"--%>
+
+                <form action="${pageContext.request.contextPath}/authenticateTheUser"
                            method="POST" class="form-horizontal">
 
                     <!-- Place for messages: error, alert etc ... -->
@@ -67,20 +73,6 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                    <%--        <c:if test="${param.error != null}">
-
-                                                <div class="alert alert-danger col-xs-offset-1 col-xs-10">
-                                                    Invalid username and password.
-                                                </div>
-
-                                            </c:if>--%>
-
-                                <!--
-                                <div class="alert alert-success col-xs-offset-1 col-xs-10">
-                                    You have been logged out.
-                                </div>
-                                -->
-
                             </div>
                         </div>
                     </div>
@@ -106,7 +98,14 @@
                         </div>
                     </div>
 
-                </form:form>
+                    <%--                    CSRF token must be added manually when spring's <form:form> is not used--%>
+                    <input type="hidden"
+                           name="${_csrf.parameterName}"
+                           value="${_csrf.token}"
+                    />
+
+                </form>
+                <%--                </form:form>--%>
 
             </div>
 
