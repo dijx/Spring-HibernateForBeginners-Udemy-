@@ -16,15 +16,20 @@
 
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Admin's Page</title>
 </head>
 <body>
-<h2>Home page - guest are welcome!</h2>
+<h2>Sysadmins' page</h2>
 <hr>
-<p>Welcome all!</p>
+<p>Welcome, admin!</p>
 <p>
-    <a href="${pageContext.request.contextPath}/employees">Go to private resources - requires signing in</a>
+    <%--    Display username and roles--%>
+    User: <security:authentication property="principal.username"/>
 </p>
+<p>
+    Role(s): <security:authentication property="principal.authorities"/>
+</p>
+<hr>
 
 </body>
 

@@ -16,16 +16,31 @@
 
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Employees Page</title>
 </head>
 <body>
-<h2>Home page - guest are welcome!</h2>
+<h2>SpringMVC employees page</h2>
 <hr>
-<p>Welcome all!</p>
+<p>Welcome</p>
 <p>
-    <a href="${pageContext.request.contextPath}/employees">Go to private resources - requires signing in</a>
+    <%--    Display username and roles--%>
+    User: <security:authentication property="principal.username"/>
 </p>
+<p>
+    Role(s): <security:authentication property="principal.authorities"/>
+</p>
+<hr>
 
+<security:authorize access="hasRole('MANAGER')">
+    <p>
+        <a href="${pageContext.request.contextPath}/managers">Go to managers resources</a>
+    </p>
+</security:authorize>
+<security:authorize access="hasRole('ADMIN')">
+    <p>
+        <a href="${pageContext.request.contextPath}/systems">Go to admins resources</a>
+    </p>
+</security:authorize>
 </body>
 
 <footer>
