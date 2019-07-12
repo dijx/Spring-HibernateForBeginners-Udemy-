@@ -7,7 +7,9 @@ import java.util.List;
 
 public class StudentsFactory {
 
-    public List<Student> getStudents() {
+    private static List<Student> instance = getStudents();
+
+    private static List<Student> getStudents() {
 
         List<Student> students = new ArrayList<>();
 
@@ -18,5 +20,9 @@ public class StudentsFactory {
         return students;
     }
 
+    public static List<Student> getInstance() {
+
+        return instance;
+    }
 
 }
