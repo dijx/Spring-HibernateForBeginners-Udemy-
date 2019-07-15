@@ -3,6 +3,7 @@ package org.anyrem.spring.demo.crm.rest;
 import org.anyrem.spring.demo.crm.entity.Customer;
 import org.anyrem.spring.demo.crm.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -57,6 +58,15 @@ public class CustomerRestController {
             throw new CustomerNotFoundException("Customer ID not found: " + customerId);
         }
 
+        return customer;
+    }
+
+
+    @PostMapping(value = "/customers", consumes = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8")
+    public Customer addCustomer(@RequestBody Customer customer) {
+
+        customer.setId(0);
+        customerService.saveCustomer(customer);
         return customer;
     }
 
