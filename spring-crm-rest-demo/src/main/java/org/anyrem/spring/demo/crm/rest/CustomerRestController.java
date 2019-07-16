@@ -70,4 +70,42 @@ public class CustomerRestController {
         return customer;
     }
 
+    @PutMapping(value = "/customers", consumes = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8")
+    public Customer updateCustomer(@RequestBody Customer customer, @RequestParam Optional<Integer> id) {
+
+        if (id.isPresent()) {
+
+            int idUsed = id.get();
+            customer.setId(idUsed);
+        }
+
+        customerService.saveCustomer(customer);
+        return customer;
+
+    }
+
+    @DeleteMapping(value = "/customers/{customerId}", produces = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8")
+    public Customer deleteCustomer(@PathVariable int customerId) {
+
+        Customer toDeleteCustomer = null;
+
+        try {
+            toDeleteCustomer = customerService.getCustomer(customerId);
+
+            if (toDeleteCustomer == null) {
+
+                throw new CustomerNotFoundException("Customer ID not found: " + customerId);
+
+            } else {
+
+                customerService.deleteCustomer(customerId);
+                return toDeleteCustomer;
+            }
+
+        } catch (Exception e) {
+            throw new CustomerNotFoundException("Customer ID not found: " + customerId);
+        }
+
+    }
+
 }
