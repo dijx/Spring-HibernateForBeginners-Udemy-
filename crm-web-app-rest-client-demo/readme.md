@@ -1,0 +1,1 @@
+This module (crm-web-app-rest-client-demo) needs "spring-crm-rest-demo" module to be running.
