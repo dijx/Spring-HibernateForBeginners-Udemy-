@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.anyrem.springboot</groupId>
-    <artifactId>thymeleaf-demo-employees-list-db</artifactId>
+    <artifactId>thymeleaf-demo-employees-add</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>thymeleaf-demo-employees-list-db</name>
+    <name>thymeleaf-demo-employees-add</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
