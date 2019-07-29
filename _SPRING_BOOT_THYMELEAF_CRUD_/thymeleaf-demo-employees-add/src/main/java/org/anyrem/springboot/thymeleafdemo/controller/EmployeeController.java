@@ -6,10 +6,7 @@ import org.anyrem.springboot.thymeleafdemo.util.EmployeesFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/employees")
@@ -41,6 +38,21 @@ public class EmployeeController {
 
         employeeService.save(employee);
 
+        return "redirect:/employees/list";
+    }
+
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("employeeId") int id, Model model) {
+
+        model.addAttribute("employee", employeeService.findById(id));
+
+        return "employees/employee-form";
+    }
+
+    @GetMapping("/deleteEmployee")
+    public String deleteEmployee(@RequestParam("employeeId") int id) {
+
+        employeeService.deleteById(id);
         return "redirect:/employees/list";
     }
 

@@ -46,7 +46,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void save(Employee employee) {
 
-        employee.setId(0);
         employeeRepository.save(employee);
     }
 

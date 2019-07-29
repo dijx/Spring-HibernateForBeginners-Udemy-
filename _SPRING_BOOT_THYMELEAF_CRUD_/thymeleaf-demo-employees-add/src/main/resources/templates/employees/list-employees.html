@@ -28,6 +28,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th>Action</th>
         </thead>
 
         <tbody>
@@ -35,10 +36,22 @@
             <td th:text="${employee.firstName}"/>
             <td th:text="${employee.lastName}"/>
             <td th:text="${employee.email}"/>
+            <td>
+                <a th:href="@{/employees/showFormForUpdate(employeeId=${employee.id})}"
+                   class="btn btn-success btn-sm">
+                    Update
+                </a>
+                <a th:href="@{/employees/deleteEmployee(employeeId=${employee.id})}"
+                   onclick="if (!(confirm('Are you sure you want to delete user?'))) return false"
+                   class="btn btn-danger btn-sm">
+                    Delete
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
 
 </div>
+
 </body>
 </html>
